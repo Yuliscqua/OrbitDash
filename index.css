@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: #6366f1;
+  --accent-rgb: 99, 102, 241;
+
+  --widget-padding: 1rem;
+  --widget-gap: 0.75rem;
+  --grid-gap: 1rem;
+  --font-scale: 1;
+}
+
+[data-theme="dark"] {
+  --color-base: #0d0d0f;
+  --color-surface: #141418;
+  --color-surface-2: #1c1c22;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-text-primary: #f0f0f4;
+  --color-text-muted: rgba(240, 240, 244, 0.45);
+  --shadow-glow: 0 0 0 1px rgba(var(--accent-rgb), 0.15), 0 4px 24px rgba(var(--accent-rgb), 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-base);
+  color: var(--color-text-primary);
+  font-size: calc(0.875rem * var(--font-scale));
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(var(--accent-rgb), 0.3);
+}
+
+::selection {
+  background: rgba(var(--accent-rgb), 0.25);
+  color: var(--color-text-primary);
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fade-in 0.2s ease-out forwards;
+}
+
+h1, h2, h3 {
+  font-family: 'Syne', sans-serif;
+}
+
+code, pre {
+  font-family: 'DM Mono', monospace;
+}
